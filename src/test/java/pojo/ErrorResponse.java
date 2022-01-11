@@ -1,4 +1,4 @@
-package testProject.pojo;
+package pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,13 +9,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ErrorResponse {
 
     @JsonProperty("error")
-    private java.lang.Error error;
+    private Error error;
 
-    public java.lang.Error getError() {
+    public Error getError() {
         return error;
     }
 
-    public void setError(java.lang.Error error) {
+    public void setError(Error error) {
         this.error = error;
     }
 

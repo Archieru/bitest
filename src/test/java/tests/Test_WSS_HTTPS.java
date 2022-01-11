@@ -1,30 +1,29 @@
-package testProject.tests;
+package tests;
 
 import com.consol.citrus.validation.json.JsonMappingValidationCallback;
-import com.google.common.collect.Lists;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
 import com.consol.citrus.dsl.testng.TestNGCitrusTestRunner;
 import com.consol.citrus.message.MessageType;
-import cs.pojo.Error;
-import cs.pojo.ErrorResponse;
-import cs.pojo.HttpsResponse;
-import io.qameta.allure.Step;
-import io.qameta.allure.Story;
+//import io.qameta.allure.Step;
+//import io.qameta.allure.Story;
 import org.springframework.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pojo.Error;
+import pojo.ErrorResponse;
+import pojo.HttpsResponse;
 import java.math.BigDecimal;
 import java.util.Map;
 
 
-public class TestSocket extends TestNGCitrusTestRunner {
+public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
 
     private TestContext context;
 
     @Test(description = "Description", enabled=true)
     @CitrusTest
-    @Story("TestWebSockets")
+//    @Story("TestWebSockets")
     public void getTestActions() {
         this.context = citrus.createTestContext();
 //        context.setVariable("tickerUpper", "RAREUSDT");
@@ -46,14 +45,14 @@ public class TestSocket extends TestNGCitrusTestRunner {
         getResponseAndValidateFromHTTPS();
     }
 
-    @Step("Send request to WSS")
+//    @Step("Send request to WSS")
     public void sendRequestToWSS() {
         send(action -> action
                 .endpoint("wssClient")
         );
     }
 
-    @Step("Get response from WSS and validate data")
+//    @Step("Get response from WSS and validate data")
     public void getResponseAndValidateFromWSS() {
         receive(action -> action
                 .endpoint("wssClient")
@@ -62,7 +61,7 @@ public class TestSocket extends TestNGCitrusTestRunner {
         );
     }
 
-    @Step("Send request to HTTPS")
+//    @Step("Send request to HTTPS")
     public void sendRequestToHTTPS() {
         http(action -> action
                 .client("httpClient")
@@ -71,7 +70,7 @@ public class TestSocket extends TestNGCitrusTestRunner {
         );
     }
 
-    @Step("Get response from HTTPS and validate data")
+//    @Step("Get response from HTTPS and validate data")
     public void getResponseAndValidateFromHTTPS() {
         http(action -> action
                         .client("httpClient")
@@ -106,6 +105,7 @@ public class TestSocket extends TestNGCitrusTestRunner {
     public ErrorResponse getJsonDataResponseWSS(){
         ErrorResponse errorResponse = new ErrorResponse();
         Error error = new Error();
+
         error.setCode(3);
         error.setMsg("Invalid JSON: EOF while parsing a value at line 1 column 0");
         errorResponse.setError(error);
