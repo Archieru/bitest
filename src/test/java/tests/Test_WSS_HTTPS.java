@@ -5,8 +5,8 @@ import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
 import com.consol.citrus.dsl.testng.TestNGCitrusTestRunner;
 import com.consol.citrus.message.MessageType;
-//import io.qameta.allure.Step;
-//import io.qameta.allure.Story;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import org.springframework.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -23,7 +23,7 @@ public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
 
     @Test(description = "Description", enabled=true)
     @CitrusTest
-//    @Story("TestWebSockets")
+    @Story("TestWebSockets")
     public void getTestActions() {
         this.context = citrus.createTestContext();
 //        context.setVariable("tickerUpper", "RAREUSDT");
@@ -45,14 +45,14 @@ public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
         getResponseAndValidateFromHTTPS();
     }
 
-//    @Step("Send request to WSS")
+    @Step("Send request to WSS")
     public void sendRequestToWSS() {
         send(action -> action
                 .endpoint("wssClient")
         );
     }
 
-//    @Step("Get response from WSS and validate data")
+    @Step("Get response from WSS and validate data")
     public void getResponseAndValidateFromWSS() {
         receive(action -> action
                 .endpoint("wssClient")
@@ -61,7 +61,7 @@ public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
         );
     }
 
-//    @Step("Send request to HTTPS")
+    @Step("Send request to HTTPS")
     public void sendRequestToHTTPS() {
         http(action -> action
                 .client("httpClient")
@@ -70,7 +70,7 @@ public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
         );
     }
 
-//    @Step("Get response from HTTPS and validate data")
+    @Step("Get response from HTTPS and validate data")
     public void getResponseAndValidateFromHTTPS() {
         http(action -> action
                         .client("httpClient")

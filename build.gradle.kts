@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id ("io.qameta.allure") version "2.6.0"
     kotlin("jvm") version "1.6.10"
     kotlin("plugin.serialization") version "1.5.31"
     application
@@ -37,6 +38,11 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
     useTestNG()
+
+    allure {
+        autoconfigure = true
+        aspectjweaver = true
+    }
 }
 
 tasks.withType<KotlinCompile>() {
