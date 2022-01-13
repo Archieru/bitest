@@ -10,6 +10,7 @@ import com.consol.citrus.message.MessageType;
 import org.springframework.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pojo.Error;
 import pojo.ErrorResponse;
 import pojo.HttpsResponse;
@@ -20,6 +21,7 @@ import java.util.Map;
 public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
 
     private TestContext context;
+    SoftAssert softAssert = new SoftAssert();
 
     @Test(description = "Description", enabled=true)
     @CitrusTest
@@ -89,12 +91,18 @@ public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
                                 BigDecimal bidAmount = new BigDecimal(payload.getBids().get(0).get(1));
                                 BigDecimal decimal = new BigDecimal("0.0");
 
-                                Assert.assertEquals(askPrice.compareTo(bidPrice), 1 );
-                                Assert.assertEquals(askAmount.compareTo(decimal), 1);
-                                Assert.assertEquals(bidAmount.compareTo(decimal), 1);
-                                Assert.assertTrue(payload.getAsks().size() <= 1000);
-                                Assert.assertTrue(payload.getBids().size() <= 1000);
+//                                Assert.assertEquals(askPrice.compareTo(bidPrice), 1 );
+//                                Assert.assertEquals(askAmount.compareTo(decimal), 1);
+//                                Assert.assertEquals(bidAmount.compareTo(decimal), 1);
+//                                Assert.assertTrue(payload.getAsks().size() <= 1000);
+//                                Assert.assertTrue(payload.getBids().size() <= 1000);
 
+                                softAssert.assertEquals(askPrice.compareTo(bidPrice), -1 );
+                                softAssert.assertEquals(askAmount.compareTo(decimal), 1);
+                                softAssert.assertEquals(bidAmount.compareTo(decimal), -3);
+                                softAssert.assertTrue(payload.getAsks().size() <= 1000);
+                                softAssert.assertTrue(payload.getBids().size() <= 1000);
+                                softAssert.assertAll();
                             }
                         })
         );

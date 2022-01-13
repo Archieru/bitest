@@ -104,11 +104,11 @@
                     </tr>
                     <tr class="even">
                         <th>Failed</th>
-                        <td>0&nbsp;&nbsp;|&nbsp;&nbsp;0.0%</td>
+                        <td>1&nbsp;&nbsp;|&nbsp;&nbsp;100.0%</td>
                     </tr>
                     <tr class="odd">
                         <th>Successful</th>
-                        <td>1&nbsp;&nbsp;|&nbsp;&nbsp;100.0%</td>
+                        <td>0&nbsp;&nbsp;|&nbsp;&nbsp;0.0%</td>
                     </tr>
                 </tbody>
             </table>
@@ -116,7 +116,7 @@
             <h1>Tests results (1 Tests)</h1>
             <table id="test-results"> 
                 <tbody> 
-                    <tr class="success" onmouseover="showTooltip('Test_WSS_HTTPS.getTestActionsInfo', event);" onmouseout="hideTooltip();">
+                    <tr class="failure" onmouseover="showTooltip('Test_WSS_HTTPS.getTestActionsInfo', event);" onmouseout="hideTooltip();">
     <th>Test_WSS_HTTPS.getTestActions
         <span class="tooltip" id="Test_WSS_HTTPS.getTestActionsInfo">
         <b><i>Test_WSS_HTTPS.getTestActions</i></b><br/>
@@ -128,9 +128,75 @@
         <b>Description:</b> <br/>
         </span>
     </th>
-    <td>SUCCESS</td>
+    <td>FAILURE</td>
 </tr>
-
+<tr><td colspan="2"><div class="error-detail"><pre>com.consol.citrus.exceptions.TestCaseFailedException: The following asserts failed:
+	expected [-1] but found [1],
+	expected [-3] but found [1]
+ 
+	 at com.consol.citrus.TestCase.executeAction(TestCase.java:227)
+	 at com.consol.citrus.dsl.runner.DefaultTestRunner.run(DefaultTestRunner.java:188)
+	 at com.consol.citrus.dsl.runner.DefaultTestRunner.http(DefaultTestRunner.java:540)
+	 at com.consol.citrus.dsl.testng.TestNGCitrusTestRunner.http(TestNGCitrusTestRunner.java:375)
+	 at tests.Test_WSS_HTTPS.getResponseAndValidateFromHTTPS(Test_WSS_HTTPS.java:77)
+	 at tests.Test_WSS_HTTPS.getTestActions(Test_WSS_HTTPS.java:47)
+	 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	 at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	 at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:223)
+	 at com.consol.citrus.dsl.testng.TestNGCitrusTest.invokeTestMethod(TestNGCitrusTest.java:128)
+	 at com.consol.citrus.dsl.testng.TestNGCitrusTest.run(TestNGCitrusTest.java:110)
+	 at com.consol.citrus.dsl.testng.TestNGCitrusTest.run(TestNGCitrusTest.java:56)
+	 at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:253)
+	 at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:594)
+	 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	 at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	 at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	 at org.testng.TestRunner.run(TestRunner.java:596)
+	 at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	 at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	 at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	 at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	 at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	 at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	 at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	 at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	 at org.testng.TestNG.runSuites(TestNG.java:1063)
+	 at org.testng.TestNG.run(TestNG.java:1031)
+	 at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:141)
+	 at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:90)
+	 at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	 at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	 at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	 at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	 at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	 at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	 at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	 at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:135)
+	 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	 at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	 at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	 at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	 at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	 at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	 at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	 at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	 at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	 at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	 at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	 at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	 at java.base/java.lang.Thread.run(Thread.java:829)</pre></div></td></tr>
                 </tbody>
             </table>
         </div>
