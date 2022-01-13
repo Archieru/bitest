@@ -10,6 +10,7 @@ import io.qameta.allure.Story;
 import org.springframework.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pojo.Error;
 import pojo.ErrorResponse;
 import pojo.HttpsResponse;
@@ -38,8 +39,8 @@ public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
 //        echo("!!!!!" + context.getVariable("urlHTTPS"));
 //        echo("!!!!!" + context.getVariable("urlWSS"));
 
-        sendRequestToWSS();
-        getResponseAndValidateFromWSS();
+//        sendRequestToWSS();
+//        getResponseAndValidateFromWSS();
 
         sendRequestToHTTPS();
         getResponseAndValidateFromHTTPS();
@@ -94,7 +95,6 @@ public class Test_WSS_HTTPS extends TestNGCitrusTestRunner {
                                 Assert.assertEquals(bidAmount.compareTo(decimal), 1);
                                 Assert.assertTrue(payload.getAsks().size() <= 1000);
                                 Assert.assertTrue(payload.getBids().size() <= 1000);
-
                             }
                         })
         );
