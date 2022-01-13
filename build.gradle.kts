@@ -17,14 +17,28 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.2")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.3.0")
     testImplementation(kotlin("test"))
+
+    implementation("com.consol.citrus:citrus-core:2.8.0")
+    implementation("com.consol.citrus:citrus-java-dsl:2.8.0")
+    implementation("com.consol.citrus:citrus-http:2.8.0")
+    implementation("com.consol.citrus:citrus-websocket:2.8.0")
+    testImplementation("org.testng:testng:7.4.0")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+
+    implementation("org.slf4j:slf4j-api:1.7.25")
+    implementation("org.slf4j:jcl-over-slf4j:1.7.25")
+    testImplementation("org.slf4j:slf4j-log4j12:1.7.25")
 }
 
 tasks.test {
     useJUnitPlatform()
+    useTestNG()
 }
 
 tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "13"
+    kotlinOptions.jvmTarget = "11"
 }
 
 application {
